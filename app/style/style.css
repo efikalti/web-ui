@@ -1,0 +1,24 @@
+.btn[disabled] {
+    pointer-events: auto;
+}
+
+ul {
+    padding: 10px;
+    list-style-type: none;
+}
+
+ul.sidebar li {
+  text-decoration: none;
+  text-indent: 25px;
+  font-size: 15px;
+  color: #b2bfdc;
+  line-height: 40px;
+  list-style-type: none;
+}
+
+ul.sidebar li:hover {
+  cursor: pointer;
+  color: #fff;
+  border-left: 3px solid #e99d1a;
+  text-indent: 22px;
+}

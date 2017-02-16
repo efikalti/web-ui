@@ -60,17 +60,12 @@
                 </li>
                 <li class="sidebar-title"><span>NAVIGATION</span></li>
 
-                <li class="sidebar-list">
-                    <a ui-sref="jobs">Jobs <span class="menu-icon fa fa-cog"></span></a>
+                <li data-ng-attr-id="jobsMenu" data-ng-click="toggleMenu('jobItems')" class="sidebar-list parent" id="jobsMenu">Jobs <span class="menu-icon fa fa-cog"></span>
                 </li>
-
-                <li class="sidebar-list parent">Media Store
-                  <ul>
-                      <li class="sidebar-list">Image Store</li>
-                      <li class="sidebar-list">Document Store</li>
-                      <li class="sidebar-list">Media Store</li>
-                  </ul>
-                </li>
+                <ul id="jobItems">
+                    <li class="sidebar-list"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp; View jobs</li>
+                    <li class="sidebar-list"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp; Submit job</li>
+                </ul>
 
             </ul>
             <div class="sidebar-footer">

@@ -37,11 +37,10 @@ function MasterCtrl($scope, $cookieStore) {
         $scope.$apply();
     };
 
-    //user nav
-    $('.child').hide();
-    $('.parent').click(function() {
-     $('.child').slideUp();
-    $(this).find('ul').slideToggle();
-    });
+    $scope.toggleMenu = function($id) {
+      console.log($id);
+      var item = $("#" + $id);
+      item.slideToggle();
+    };
 
 }

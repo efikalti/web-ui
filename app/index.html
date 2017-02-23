@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Lambda Dashboard</title>
+    <title>Web UI</title>
 
     <!-- STYLES -->
     <!-- build:css lib/css/main.min.css -->
     <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/rdash-ui/dist/css/rdash.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Custom css -->
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/css/rdash.css">
+    <link rel="stylesheet" href="style/css/style.css">
 
     <!-- endbuild -->
     <!-- SCRIPTS -->
@@ -26,6 +26,8 @@
     <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 
     <!-- Custom Scripts -->
     <script src="app.js"></script>
@@ -39,8 +41,7 @@
     <script type="text/javascript" src="directives/widget-header.js"></script>
 
     <!-- Components -->
-    <script type="text/javascript" src="components/jobs/jobs.module.js"></script>
-    <script type="text/javascript" src="components/jobs/jobs.component.js"></script>
+    <script type="text/javascript" src="controllers/jobsController.js"></script>
 
 
 
@@ -63,8 +64,8 @@
                 <li data-ng-attr-id="jobsMenu" data-ng-click="toggleMenu('jobItems')" class="sidebar-list parent" id="jobsMenu">Jobs <span class="menu-icon fa fa-cog"></span>
                 </li>
                 <ul id="jobItems">
-                    <li class="sidebar-list"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp; View jobs</li>
-                    <li class="sidebar-list"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp; Submit job</li>
+                    <li ng-click="changeView('jobs')"  class="sidebar-list"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp; View jobs</li>
+                    <li ng-click="changeView('submit')" class="sidebar-list"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp; Submit job</li>
                 </ul>
 
             </ul>
@@ -107,7 +108,7 @@
                 <!-- End Header Bar -->
 
                 <!-- Main Content -->
-                <div ui-view></div>
+              <ui-view/>
 
             </div>
             <!-- End Page Content -->

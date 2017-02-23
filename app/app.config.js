@@ -14,7 +14,13 @@ angular.module('webUI').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('jobs', {
                 url: '/jobs',
-                templateUrl: 'templates/jobs.html'
+                templateUrl: 'templates/jobs/view-jobs.html',
+                controller:'jobsController'
+            })
+            .state('submit', {
+                url: '/submit',
+                templateUrl: 'templates/jobs/submit-job.html',
+                controller:'jobsController'
             });
     }
 ]);

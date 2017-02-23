@@ -3,9 +3,9 @@
  */
 
 angular.module('webUI')
-    .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
+    .controller('MasterCtrl', ['$state', '$scope', '$cookieStore', '$location', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore) {
+function MasterCtrl($state, $scope, $cookieStore, $location) {
     /**
      * Sidebar Toggle & Cookie Control
      */
@@ -38,9 +38,12 @@ function MasterCtrl($scope, $cookieStore) {
     };
 
     $scope.toggleMenu = function($id) {
-      console.log($id);
       var item = $("#" + $id);
       item.slideToggle();
     };
+
+    $scope.changeView = function(view){
+      $state.transitionTo(view);
+    }
 
 }

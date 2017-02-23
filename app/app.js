@@ -5,11 +5,9 @@ var app = angular.module('webUI', [
     'ui.router',
     'ui.bootstrap',
     'ngCookies',
-    'jobs'
+    'ngFileUpload'
 ]);
 
 app.controller('uiController', function($scope) {
-
-    $scope.message = 'test';
 
 });

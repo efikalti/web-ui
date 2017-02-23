@@ -22,3 +22,27 @@ ul.sidebar li:hover {
   border-left: 3px solid #e99d1a;
   text-indent: 22px;
 }
+
+.center-content {
+  text-align: center;
+}
+
+.upload-file {
+    text-align: center;
+    background-color: #F7F6E9;
+    font-size: 20px;
+}
+
+.drop-area {
+  border: 1px dotted #2d3e63;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.lg *{
+  font-size: 18px !important;
+}

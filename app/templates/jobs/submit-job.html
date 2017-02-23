@@ -1,0 +1,105 @@
+<div>
+    <div class="row">
+        <div class="col-lg-6">
+            <rd-widget>
+                <rd-widget-header icon="fa-bolt" title="Executable">
+                </rd-widget-header>
+                <rd-widget-body classes="center-content">
+                    <container class="upload-file">
+                        <div class="row justify-content-center">
+                            <div ng-model="file" ngf-drop="uploadFile(file)" ngf-drag-over-class="'dragover'" ngf-multiple="false" class="drop-box drop-area">
+                                <img src="img/upload_icon.png" alt="Drop here">
+                                <br><br>Drop executable file to upload <br><br> or <br><br>
+                            </div>
+                        </div>
+                        <button ngf-select="uploadFile(file)" ng-model="file" ngf-multiple="false" name="file" ngf-max-size="20MB" type="button" class="btn btn-primary btn-lg">Browse</button>
+                    </container>
+                </rd-widget-body>
+                <rd-widget-footer>
+                    <div class="clearfix"></div>
+                </rd-widget-footer>
+            </rd-widget>
+        </div>
+        <div class="col-lg-6">
+            <rd-widget>
+                <rd-widget-header icon="fa-file" title="Input files">
+                </rd-widget-header>
+                <rd-widget-body classes="center-content">
+                    <container class="upload-file">
+                        <div class="row justify-content-center">
+                            <div ng-model="input_file" ngf-drop="uploadFiles(input_file)" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true" class="drop-box drop-area">
+                                <img src="img/upload_icon.png" alt="Drop here">
+                                <br><br>Drop input file(s) to upload <br><br> or <br><br>
+                            </div>
+                        </div>
+                        <button ngf-select="uploadFiles(input_file)" ng-model="input_file" ngf-multiple="true" name="input_file" ngf-allow-dir="true" ngf-max-size="20MB" type="button" class="btn btn-primary btn-lg">Browse</button>
+                    </container>
+                </rd-widget-body>
+                <rd-widget-footer>
+                    <div class="clearfix"></div>
+                </rd-widget-footer>
+            </rd-widget>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <rd-widget>
+                <rd-widget-header icon="fa-file" title="Selected executable file">
+                </rd-widget-header>
+                <rd-widget-body>
+                    <div class="table-responsive">
+                        <table class="table">
+                          <thead class="lg">
+                            <th>Filename</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Remove</th>
+                          </thead>
+                            <tbody>
+                                <tr ng-show='exec_file'>
+                                    <td>{{ exec_file.name }}</td>
+                                    <td>Executable</td>
+                                    <td>{{ exec_file.size / 1024 | number }} kB</td>
+                                    <td><button ng-click="deleteExecFile()" type="button" class="btn btn-danger btn-sm">x</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </rd-widget-body>
+                <rd-widget-footer>
+                    <div class="clearfix"></div>
+                </rd-widget-footer>
+            </rd-widget>
+        </div>
+        <div class="col-lg-6">
+            <rd-widget>
+                <rd-widget-header icon="fa-file" title="Selected input files">
+                </rd-widget-header>
+                <rd-widget-body>
+                    <div class="table-responsive">
+                        <table class="table">
+                          <thead class="lg">
+                            <th>Filename</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Remove</th>
+                          </thead>
+                            <tbody>
+                                <tr ng-repeat="file in input_files">
+                                    <td>{{ file.name }}</td>
+                                    <td>Input</td>
+                                    <td>{{ file.size / 1024 | number }} kB</td>
+                                    <td><button ng-click="deleteFile(file)" type="button" class="btn btn-danger btn-sm">x</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </rd-widget-body>
+                <rd-widget-footer>
+                    <div class="clearfix"></div>
+                </rd-widget-footer>
+            </rd-widget>
+        </div>
+    </div>
+</div>

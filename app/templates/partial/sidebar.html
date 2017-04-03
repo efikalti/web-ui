@@ -1,0 +1,39 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar">
+        <li class="sidebar-main">
+            <a ng-click="toggleSidebar()">
+      Dashboard
+      <span class="menu-icon glyphicon glyphicon-transfer"></span>
+    </a>
+        </li>
+        <li class="sidebar-title"><span>NAVIGATION</span></li>
+
+        <li data-ng-attr-id="jobsMenu" data-ng-click="toggleMenu('jobItems')" class="sidebar-list parent" id="jobsMenu">Jobs <span class="menu-icon fa fa-cog"></span>
+        </li>
+        <ul id="jobItems">
+            <li ng-click="changeView('jobs')"  class="sidebar-list"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp; View jobs</li>
+            <li ng-click="changeView('submit')" class="sidebar-list"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp; Submit job</li>
+        </ul>
+
+    </ul>
+    <div class="sidebar-footer">
+        <div class="col-xs-4">
+            <a href="https://github.com/efikalti" target="_blank">
+      Github
+    </a>
+        </div>
+        <div class="col-xs-4">
+            <a href="#" target="_blank">
+      About
+    </a>
+        </div>
+        <div class="col-xs-4">
+            <a href="mailto:kaltirim@csd.auth.gr?Subject=Lambda%20Support">
+      Support
+    </a>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar -->
+<header></header>

@@ -5,9 +5,31 @@ var app = angular.module('webUI', [
     'ui.router',
     'ui.bootstrap',
     'ngCookies',
-    'ngFileUpload'
+    'ngFileUpload',
 ]);
 
-app.controller('uiController', function($scope) {
+app.factory('appData', ['$rootScope', function ($rootScope) {
 
-});
+    var service = {
+
+        model: {
+            toggle: true,
+        },
+        SaveState: function () {
+            sessionStorage.appData = angular.toJson(service.model);
+        },
+
+        RestoreState: function () {
+            service.model = angular.fromJson(sessionStorage.appData);
+        },
+
+        toggle: function () {
+            service.model.toggle = !service.model.toggle;
+        }
+    }
+
+    $rootScope.$on("savestate", service.SaveState);
+    $rootScope.$on("restorestate", service.RestoreState);
+
+    return service;
+}]);

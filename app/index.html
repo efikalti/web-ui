@@ -29,10 +29,9 @@
     <script type="text/javascript" src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
     <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 
-    <!-- Custom Scripts -->
-    <script src="app.js"></script>
-    <script src="app.config.js"></script>
-    <script src="controllers/master-ctrl.js"></script>
+    <!-- App config Scripts -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app.config.js"></script>
 
     <!-- Directives -->
     <script type="text/javascript" src="directives/widget.js"></script>
@@ -40,82 +39,31 @@
     <script type="text/javascript" src="directives/widget-footer.js"></script>
     <script type="text/javascript" src="directives/widget-header.js"></script>
 
-    <!-- Components -->
+    <!-- Controllers -->
+    <script type="text/javascript" src="controllers/master-ctrl.js"></script>
     <script type="text/javascript" src="controllers/jobsController.js"></script>
+
+    <!-- Components -->
+    <script type="text/javascript" src="components/partial/sidebar.component.js"></script>
+    <script type="text/javascript" src="components/partial/header.component.js"></script>
 
 
 
 </head>
 
 <body ng-controller="MasterCtrl">
-    <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar">
-                <li class="sidebar-main">
-                    <a ng-click="toggleSidebar()">
-              Dashboard
-              <span class="menu-icon glyphicon glyphicon-transfer"></span>
-            </a>
-                </li>
-                <li class="sidebar-title"><span>NAVIGATION</span></li>
-
-                <li data-ng-attr-id="jobsMenu" data-ng-click="toggleMenu('jobItems')" class="sidebar-list parent" id="jobsMenu">Jobs <span class="menu-icon fa fa-cog"></span>
-                </li>
-                <ul id="jobItems">
-                    <li ng-click="changeView('jobs')"  class="sidebar-list"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp; View jobs</li>
-                    <li ng-click="changeView('submit')" class="sidebar-list"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp; Submit job</li>
-                </ul>
-
-            </ul>
-            <div class="sidebar-footer">
-                <div class="col-xs-4">
-                    <a href="https://github.com/efikalti" target="_blank">
-              Github
-            </a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="https://github.com/efikalti/Lambda/blob/master/README.md" target="_blank">
-              About
-            </a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="mailto:kaltirim@csd.auth.gr?Subject=Lambda%20Support">
-              Support
-            </a>
-                </div>
-            </div>
-        </div>
-        <!-- End Sidebar -->
-
+  <div id="page-wrapper" ng-class="{'open': data.model.toggle}" ng-cloak>
+        <!-- Content Wrapper -->
         <div id="content-wrapper">
+            <!-- Page Content -->
             <div class="page-content">
-
-                <!-- Header Bar -->
-                <div class="row header">
-                    <div class="col-xs-12">
-                        <div class="meta">
-                            <div class="page">
-                                Dashboard
-                            </div>
-                            <div class="breadcrumb-links">
-                                Home / Dashboard
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Header Bar -->
-
-                <!-- Main Content -->
+              <!-- Main Content -->
               <ui-view/>
-
             </div>
             <!-- End Page Content -->
         </div>
         <!-- End Content Wrapper -->
-    </div>
-    <!-- End Page Wrapper -->
+  </div>
 </body>
 
 </html>

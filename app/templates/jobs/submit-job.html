@@ -49,19 +49,19 @@
                 </rd-widget-header>
                 <rd-widget-body>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover">
                           <thead class="lg">
                             <th>Filename</th>
                             <th>Type</th>
                             <th>Size</th>
-                            <th>Remove</th>
+                            <th>Action</th>
                           </thead>
                             <tbody>
                                 <tr ng-show='exec_file'>
                                     <td>{{ exec_file.name }}</td>
                                     <td>Executable</td>
                                     <td>{{ exec_file.size / 1024 | number }} kB</td>
-                                    <td><button ng-click="deleteExecFile()" type="button" class="btn btn-danger btn-sm">x</button></td>
+                                    <td><button ng-click="deleteExecFile()" type="button" class="btn btn-danger btn-sm">Remove</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -78,19 +78,25 @@
                 </rd-widget-header>
                 <rd-widget-body>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover">
                           <thead class="lg">
                             <th>Filename</th>
                             <th>Type</th>
                             <th>Size</th>
-                            <th>Remove</th>
+                            <th>Action</th>
                           </thead>
                             <tbody>
                                 <tr ng-repeat="file in input_files">
                                     <td>{{ file.name }}</td>
                                     <td>Input</td>
                                     <td>{{ file.size / 1024 | number }} kB</td>
-                                    <td><button ng-click="deleteFile(file)" type="button" class="btn btn-danger btn-sm">x</button></td>
+                                    <td><button ng-click="deleteFile(file)" type="button" class="btn btn-danger btn-sm">Remove</button></td>
+                                </tr>
+                                <tr ng-if='input_files.length'>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td><button ng-click="deleteAll()" type="button" class="btn btn-danger btn-sm">Remove all</button></td>
                                 </tr>
                             </tbody>
                         </table>

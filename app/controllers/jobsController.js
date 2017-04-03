@@ -48,7 +48,8 @@ angular.module('webUI')
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             });
         };
-        // for multiple files:
+
+        // For input files:
         $scope.uploadFiles = function(files) {
             if (files && files.length) {
 
@@ -63,6 +64,7 @@ angular.module('webUI')
             }
         }
 
+        //For executable file
         $scope.uploadFile = function(file) {
             if (file) {
                 if (file.length) {
@@ -73,12 +75,19 @@ angular.module('webUI')
             }
         }
 
+        // Delete executable file
         $scope.deleteExecFile = function() {
           $scope.exec_file = null;
         }
 
+        // Delete input file
         $scope.deleteFile = function(file) {
           $scope.input_files.splice($.inArray(file, $scope.input_files), 1);
+        }
+
+        // Delete all input file
+        $scope.deleteAll = function() {
+          $scope.input_files = [];
         }
 
     }]);

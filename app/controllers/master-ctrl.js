@@ -1,15 +1,23 @@
+'use strict';
+
 /**
  * Master Controller
  */
 
 angular.module('webUI')
-    .controller('MasterCtrl', ['$state', '$scope', '$cookieStore', '$location', MasterCtrl]);
+    .controller('MasterCtrl', ['$state', '$scope', '$cookieStore', '$location', 'appData', MasterCtrl]);
 
-function MasterCtrl($state, $scope, $cookieStore, $location) {
+function MasterCtrl($state, $scope, $cookieStore, $location, appData) {
+    /**
+    * LDAP authentication
+    */
+    //$scope.auth = auth;
+
     /**
      * Sidebar Toggle & Cookie Control
      */
     var mobileView = 992;
+    $scope.data = appData;
 
     $scope.getWidth = function() {
         return window.innerWidth;
@@ -29,17 +37,11 @@ function MasterCtrl($state, $scope, $cookieStore, $location) {
     });
 
     $scope.toggleSidebar = function() {
-        $scope.toggle = !$scope.toggle;
-        $cookieStore.put('toggle', $scope.toggle);
+        appData.toggle();
     };
 
     window.onresize = function() {
-        $scope.$apply();
-    };
-
-    $scope.toggleMenu = function($id) {
-      var item = $("#" + $id);
-      item.slideToggle();
+      $scope.$apply();
     };
 
     $scope.changeView = function(view){

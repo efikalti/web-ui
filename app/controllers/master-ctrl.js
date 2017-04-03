@@ -44,6 +44,11 @@ function MasterCtrl($state, $scope, $cookieStore, $location, appData) {
       $scope.$apply();
     };
 
+    $scope.toggleMenu = function($id) {
+      var item = $("#" + $id);
+      item.slideToggle();
+     };
+
     $scope.changeView = function(view){
       $state.transitionTo(view);
     }

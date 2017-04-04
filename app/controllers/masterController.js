@@ -5,9 +5,9 @@
  */
 
 angular.module('webUI')
-    .controller('MasterCtrl', ['$state', '$scope', '$cookieStore', '$location', 'appData', MasterCtrl]);
+    .controller('masterController', ['$state', '$scope', '$cookieStore', '$location', 'appData', masterController]);
 
-function MasterCtrl($state, $scope, $cookieStore, $location, appData) {
+function masterController($state, $scope, $cookieStore, $location, appData) {
     /**
     * LDAP authentication
     */

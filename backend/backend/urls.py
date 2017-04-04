@@ -20,5 +20,5 @@ from app import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^authenticate', views.authenticate, name='authenticate'),
+    url(r'^api/auth', views.authenticate, name='authenticate'),
 ]

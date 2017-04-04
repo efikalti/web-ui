@@ -2,5 +2,5 @@
 
 angular.module('webUI').component('sidebar', {
   templateUrl: 'templates/partial/sidebar.html',
-  controller: MasterCtrl,
+  controller: masterController,
 });

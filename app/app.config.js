@@ -1,16 +1,17 @@
 'use strict';
 
-angular.module('webUI').config(['$stateProvider', '$urlRouterProvider',
+angular.module('webUI')
+.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-
         // For unmatched routes
         $urlRouterProvider.otherwise('/');
 
         // Application routes
         $stateProvider
-            .state('index', {
+            .state('home', {
                 url: '/',
-                templateUrl: 'templates/dashboard.html'
+                templateUrl: 'templates/dashboard.html',
+                controller: 'masterController'
             })
             .state('jobs', {
                 url: '/jobs',

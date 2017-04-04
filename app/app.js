@@ -14,6 +14,7 @@ app.factory('appData', ['$rootScope', function ($rootScope) {
 
         model: {
             toggle: true,
+            login: false,
         },
         SaveState: function () {
             sessionStorage.appData = angular.toJson(service.model);
@@ -25,6 +26,16 @@ app.factory('appData', ['$rootScope', function ($rootScope) {
 
         toggle: function () {
             service.model.toggle = !service.model.toggle;
+        },
+
+        isLoggedIn: function() {
+          return service.model.login;
+        },
+
+        logIn: function(user) {
+          service.model.user = user;
+          service.model.login = true;
+          return;
         }
     }
 
@@ -32,4 +43,17 @@ app.factory('appData', ['$rootScope', function ($rootScope) {
     $rootScope.$on("restorestate", service.RestoreState);
 
     return service;
+}]);
+
+app.run(['$rootScope', '$state', 'appData', function ($rootScope, $state, appData) {
+    $rootScope.$on('$locationChangeStart', function (event) {
+        if (!appData.isLoggedIn()) {
+            console.log('DENY');
+            event.preventDefault();
+            $state.transitionTo('login');
+        }
+        else {
+            console.log('ALLOW');
+        }
+    });
 }]);

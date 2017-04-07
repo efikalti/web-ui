@@ -43,10 +43,13 @@ app.factory('appData', ['$rootScope', '$cookieStore', function ($rootScope, $coo
 }]);
 
 app.run(['$rootScope', '$state', '$cookieStore', 'appData', function ($rootScope, $state, $cookieStore, appData) {
-    $rootScope.$on('$locationChangeStart', function (event) {
+    $rootScope.$on('$locationChangeStart', function (event, to) {
       if (typeof $cookieStore.get('user') === 'undefined'){
-            event.preventDefault();
-            $state.transitionTo('login');
+          event.preventDefault();
+          $state.transitionTo('login');
+      }
+      else if (to.includes("login")){
+        $state.transitionTo('home');
       }
     });
 }]);

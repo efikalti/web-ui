@@ -20,6 +20,10 @@ angular.module('webUI')
             }
         };
 
+        if (typeof $state.current.data !== 'undefined'){
+          $scope.locationName = $state.current.data.locationName;
+        }
+
         $scope.exec_file = null;
         $scope.input_files = [];
 

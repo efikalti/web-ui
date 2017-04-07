@@ -8,7 +8,7 @@
     </a>
         </li>
         <li class="sidebar-title"><span>NAVIGATION</span></li>
-
+        <li data-ng-attr-id="homeMenu" ng-click="changeView('home')" class="sidebar-list parent" id="homeMenu">Home <span class="menu-icon fa fa-home"></span>
         <li data-ng-attr-id="jobsMenu" data-ng-click="toggleMenu('jobItems')" class="sidebar-list parent" id="jobsMenu">Jobs <span class="menu-icon fa fa-cog"></span>
         </li>
         <ul id="jobItems">
@@ -36,4 +36,4 @@
     </div>
 </div>
 <!-- End Sidebar -->
-<header></header>
+<header locationName={{ locationName }}></header>

@@ -5,19 +5,19 @@
  */
 
 angular.module('webUI')
-    .controller('masterController', ['$state', '$scope', '$cookieStore', '$location', 'appData', masterController]);
+    .controller('masterController', ['$state', '$scope', '$cookieStore', '$location', '$rootScope', 'appData', masterController]);
 
-function masterController($state, $scope, $cookieStore, $location, appData) {
-    /**
-    * LDAP authentication
-    */
-    //$scope.auth = auth;
-
+function masterController($state, $scope, $cookieStore, $location, $rootScope, appData) {
     /**
      * Sidebar Toggle & Cookie Control
      */
     var mobileView = 992;
     $scope.data = appData;
+    $scope.user = $cookieStore.get('user');
+
+    if (typeof $state.current.data !== 'undefined'){
+      $scope.locationName = $state.current.data.locationName;
+    }
 
     $scope.getWidth = function() {
         return window.innerWidth;
@@ -51,6 +51,11 @@ function masterController($state, $scope, $cookieStore, $location, appData) {
 
     $scope.changeView = function(view){
       $state.transitionTo(view);
+    }
+
+    $scope.logout = function(){
+      $cookieStore.remove('user');
+      $state.transitionTo('login');
     }
 
 }

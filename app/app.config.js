@@ -11,17 +11,26 @@ angular.module('webUI')
             .state('home', {
                 url: '/',
                 templateUrl: 'templates/dashboard.html',
-                controller: 'masterController'
+                controller: 'masterController',
+                data: {
+                  locationName: 'Dashboard'
+                }
             })
             .state('jobs', {
                 url: '/jobs',
                 templateUrl: 'templates/jobs/view-jobs.html',
-                controller:'jobsController'
+                controller:'jobsController',
+                data: {
+                  locationName: 'Jobs'
+                }
             })
             .state('submit', {
                 url: '/submit',
                 templateUrl: 'templates/jobs/submit-job.html',
-                controller:'jobsController'
+                controller:'jobsController',
+                data: {
+                  locationName: 'Jobs!'
+                }
             })
             .state('login', {
                 url: '/login',

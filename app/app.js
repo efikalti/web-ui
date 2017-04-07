@@ -8,13 +8,12 @@ var app = angular.module('webUI', [
     'ngFileUpload',
 ]);
 
-app.factory('appData', ['$rootScope', function ($rootScope) {
+app.factory('appData', ['$rootScope', '$cookieStore', function ($rootScope, $cookieStore) {
 
     var service = {
 
         model: {
             toggle: true,
-            login: false,
         },
         SaveState: function () {
             sessionStorage.appData = angular.toJson(service.model);
@@ -28,13 +27,11 @@ app.factory('appData', ['$rootScope', function ($rootScope) {
             service.model.toggle = !service.model.toggle;
         },
 
-        isLoggedIn: function() {
-          return service.model.login;
-        },
-
         logIn: function(user) {
-          service.model.user = user;
-          service.model.login = true;
+          var today = new Date();
+          var expiresValue = new Date(today);
+          expiresValue.setSeconds(today.getSeconds() + 3600);
+          $cookieStore.put('user', user, {'expires' : expiresValue})
           return;
         }
     }
@@ -45,15 +42,11 @@ app.factory('appData', ['$rootScope', function ($rootScope) {
     return service;
 }]);
 
-app.run(['$rootScope', '$state', 'appData', function ($rootScope, $state, appData) {
+app.run(['$rootScope', '$state', '$cookieStore', 'appData', function ($rootScope, $state, $cookieStore, appData) {
     $rootScope.$on('$locationChangeStart', function (event) {
-        if (!appData.isLoggedIn()) {
-            console.log('DENY');
+      if (typeof $cookieStore.get('user') === 'undefined'){
             event.preventDefault();
             $state.transitionTo('login');
-        }
-        else {
-            console.log('ALLOW');
-        }
+      }
     });
 }]);

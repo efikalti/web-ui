@@ -6,20 +6,20 @@ angular.module('webUI')
         if (typeof user == "undefined")
         {
             $('.log-status').addClass('wrong-entry');
-            $('.alert').fadeIn(500);
-            setTimeout( "$('.alert').fadeOut(1500);",3000 );
+            $('#invalid').fadeIn(500);
+            setTimeout( "$('#invalid').fadeOut(1500);",3000 );
             return;
         }
         else if (typeof user.username == "undefined") {
             $('#username-form').addClass('wrong-entry');
-            $('.alert').fadeIn(500);
-            setTimeout( "$('.alert').fadeOut(1500);",3000 );
+            $('#invalid').fadeIn(500);
+            setTimeout( "$('#invalid').fadeOut(1500);",3000 );
             return;
         }
         else if (typeof user.password == "undefined") {
             $('#password-form').addClass('wrong-entry');
-            $('.alert').fadeIn(500);
-            setTimeout( "$('.alert').fadeOut(1500);",3000 );
+            $('#invalid').fadeIn(500);
+            setTimeout( "$('#invalid').fadeOut(1500);",3000 );
             return;
         }
         // Username and password provided, call to backend to authenticate
@@ -33,6 +33,16 @@ angular.module('webUI')
             $state.transitionTo('home');
           }, function errorCallback(response) {
             console.log(response);
+            if ( response.status == 401 ){
+              $('#username-form').addClass('wrong-entry');
+              $('#password-form').addClass('wrong-entry');
+              $('#invalid').fadeIn(500);
+              setTimeout( "$('#invalid').fadeOut(1500);",3000 );
+            }
+            else {
+                $('#server').fadeIn(500);
+                setTimeout( "$('#server').fadeOut(1500);",3000 );
+            }
           });
       };
 

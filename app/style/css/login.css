@@ -83,14 +83,14 @@ h1 {
   border-radius: 4px;
 }
 
-.link {
+.link-no-dec {
   text-decoration: none;
   color: #C6C6C6;
   float: right;
   font-size: 12px;
   margin-bottom: 15px;
 }
-.link:hover {
+.link-no-dec:hover {
   text-decoration: underline;
   color: #8C918F;
 }

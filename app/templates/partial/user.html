@@ -1,0 +1,53 @@
+<div class="user pull-right">
+  <div class="item dropdown" uib-dropdown>
+    <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+      <img src="img/avatar.jpg">
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li class="dropdown-header">
+        {{ user.name  + ' ' + user.surname }}
+      </li>
+      <li class="divider"></li>
+      <li class="link">
+        <a href="#">
+          Profile
+        </a>
+      </li>
+      <li class="link">
+        <a href="#">
+          Menu Item
+        </a>
+      </li>
+      <li class="divider"></li>
+      <li class="link">
+        <a ng-click="logout()">
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="item dropdown" uib-dropdown>
+   <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+      <i class="fa fa-bell-o"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li class="dropdown-header">
+        Notifications
+      </li>
+      <li class="divider"></li>
+      <div ng-if=" user.notifications ">
+        <div ng-repeat="notification in user.notifications">
+          <li class="dropdown-item">{{ notification }}</li>
+        </div>
+      </div>
+      <li>
+        <a href="#">Server Down!</a>
+      </li>
+      <div ng-if=" !user.notifications ">
+        <li class="dropdown-header">
+          Nothing new. Enjoy your day!
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>

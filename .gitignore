@@ -1,3 +1,4 @@
 node_modules/*
 app/bower_components/*
 *.pyc
+backend/app/settings.py

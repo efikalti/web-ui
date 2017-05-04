@@ -18,17 +18,14 @@ def authenticate(request):
 
     ld = LdapController()
     user = ld.auth(username, password)
-    print user
+    user = serializeUser(user)
     # Correct credentials
     return Response({'message': 'authenticated correctly',
-                     'user': "user" },status=status.HTTP_200_OK)
+                     'user': user },status=status.HTTP_200_OK)
 
 
 def serializeUser(user):
     ser_user = {}
-    ser_user['name'] = user['name']
-    ser_user['surname'] = user['surname']
-    ser_user['username'] = user['username']
-    if 'notifications' in user:
-        ser_user['notifications'] = user['notifications']
+    ser_user['name'] = " ".join(user[1]['cn'])
+    ser_user['username'] = " ".join(user[1]['uid'])
     return ser_user

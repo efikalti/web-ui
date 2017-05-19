@@ -1,47 +1,157 @@
-<sidebar locationName= {{ locationName }}></sidebar>
+<sidebar locationName={ { locationName }}></sidebar>
 
 <div class="row">
-    <div class="col-lg-12">
-        <rd-widget>
-            <rd-widget-header icon="fa-cog" title="Jobs">
-            </rd-widget-header>
-            <rd-widget-body classes="medium no-padding">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Status</th>
-                                <th>Description</th>
-                                <th>Submitted at</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="service in running">
-                                <td>{{service.id}}</td>
-                                <td><span class="text-info"><p>{{service.name}}</p></span></td>
-                                <td><span class="text-success"><p>{{service.status}}</p></span></td>
-                                <td><span class="text-info"><p>{{service.description}}</p></span></td>
-                                <td><span class="text-info"><p>{{service.submitted_at}}</p></span></td>
-                            </tr>
-                            <tr ng-repeat="service in finished">
-                                <td>{{service}}</td>
-                                <td><span class="text-info"><p>Finished</p></span></td>
-                                <td><span class="text-info"><i class="fa fa-check" aria-hidden="true"></i></span></td>
-                            </tr>
-                            <tr ng-repeat="service in stopped">
-                                <td>{{service}}</td>
-                                <td><span class="text-danger"><p>Stopped</p></span></td>
-                                <td><span class="text-danger"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </rd-widget-body>
-            <rd-widget-footer>
-                <div class="clearfix"></div>
-            </rd-widget-footer>
-        </rd-widget>
-    </div>
+  <div class="col-lg-12">
+    <rd-widget>
+      <rd-widget-header ng-if="filtersShow" icon="fa-minus" ng-click="toggleFilters()" title="Filters">
+      </rd-widget-header>
+      <rd-widget-header ng-if="!filtersShow" icon="fa-plus" ng-click="toggleFilters()" title="Filters">
+      </rd-widget-header>
+      <rd-widget-body classes="medium" ng-if="filtersShow">
+
+        <div class="container justify-content-center">
+          <div class="col-md-4">
+            <div class="filter">
+              <h3>Status</h3>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="filters.running" ng-true-value="true" ng-false-value="false">
+                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                  &nbsp;&nbsp;Running
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="filters.finished" ng-true-value="true" ng-false-value="false">
+                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                  &nbsp;&nbsp;Finished
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="filters.stopped" ng-true-value="true" ng-false-value="false">
+                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                  &nbsp;&nbsp;Stopped
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="filter">
+              <h3>Status</h3>
+              <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="filters.running" ng-true-value="true" ng-false-value="false">
+                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                    &nbsp;&nbsp;Running
+                  </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="filters.finished" ng-true-value="true" ng-false-value="false">
+                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                    &nbsp;&nbsp;Finished
+                  </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="filters.stopped" ng-true-value="true" ng-false-value="false">
+                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                    &nbsp;&nbsp;Stopped
+                  </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="filter">
+              <h3>Name</h3>
+              <div class="checkbox">
+                <label>
+                <input type="checkbox" ng-model="filters.running" ng-true-value="true" ng-false-value="false">
+                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                &nbsp;&nbsp;Running
+              </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="filters.finished" ng-true-value="true" ng-false-value="false">
+                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                  &nbsp;&nbsp;Finished
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                      <input type="checkbox" ng-model="filters.stopped" ng-true-value="true" ng-false-value="false">
+                      <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                      &nbsp;&nbsp;Stopped
+                    </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </rd-widget-body>
+      <rd-widget-footer>
+        <div class="clearfix"></div>
+      </rd-widget-footer>
+    </rd-widget>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <rd-widget>
+      <rd-widget-header icon="fa-cog" title="Jobs">
+      </rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Description</th>
+                <th>Submitted at</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-if="filters.running" ng-repeat="service in running">
+                <td>{{service.id}}</td>
+                <td><span class="text-info"><p>{{service.name}}</p></span></td>
+                <td><span class="text-info"><p><i class="fa fa-spinner" aria-hidden="true"></i>  {{service.status}}</p></span></td>
+                <td><span class="text-info"><p>{{service.description}}</p></span></td>
+                <td><span class="text-info"><p>{{service.submitted_at}}</p></span></td>
+              </tr>
+              <tr ng-if="filters.finished" ng-repeat="service in finished">
+                <td>{{service.id}}</td>
+                <td><span class="text-info"><p>{{service.name}}</p></span></td>
+                <td><span class="text-success"><p><i class="fa fa-check" aria-hidden="true"></i>  {{service.status}}</p></span></td>
+                <td><span class="text-info"><p>{{service.description}}</p></span></td>
+                <td><span class="text-info"><p>{{service.submitted_at}}</p></span></td>
+              </tr>
+              <tr ng-if="filters.stopped" ng-repeat="service in stopped">
+                <td>{{service.id}}</td>
+                <td><span class="text-info"><p>{{service.name}}</p></span></td>
+                <td><span class="text-danger"><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i>  {{service.status}}</p></span></td>
+                <td><span class="text-info"><p>{{service.description}}</p></span></td>
+                <td><span class="text-info"><p>{{service.submitted_at}}</p></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </rd-widget-body>
+      <rd-widget-footer>
+        <div class="clearfix"></div>
+      </rd-widget-footer>
+    </rd-widget>
+  </div>
 </div>

@@ -21,7 +21,7 @@ angular.module('webUI')
                 templateUrl: 'templates/jobs/view-jobs.html',
                 controller:'jobsController',
                 data: {
-                  locationName: 'Jobs'
+                  locationName: 'View Jobs'
                 }
             })
             .state('submit', {
@@ -29,7 +29,7 @@ angular.module('webUI')
                 templateUrl: 'templates/jobs/submit-job.html',
                 controller:'jobsController',
                 data: {
-                  locationName: 'Jobs!'
+                  locationName: 'Submit Jobs'
                 }
             })
             .state('login', {

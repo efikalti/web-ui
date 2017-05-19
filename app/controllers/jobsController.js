@@ -16,8 +16,35 @@ angular.module('webUI')
                 'status': 'running',
                 'description': 'a second test job',
                 'name': 'job2',
-                'submitted_at': '07/02/2017 12.05'
+                'submitted_at': '07/02/2017 12.04'
             }
+        };
+
+        $scope.stopped = {
+          '3': {
+              'id': '3',
+              'status': 'stopped',
+              'description': 'a third test job',
+              'name': 'third-job',
+              'submitted_at': '13/02/2017 13.05'
+          }
+        };
+
+        $scope.finished = {
+          '4': {
+              'id': '4',
+              'status': 'finished',
+              'description': 'a fourth test job',
+              'name': '4 job',
+              'submitted_at': '13/02/2017 13.23'
+          }
+        };
+
+        $scope.filtersShow = true;
+        $scope.filters = {
+          stopped : true,
+          running : true,
+          finished : true,
         };
 
         if (typeof $state.current.data !== 'undefined'){
@@ -92,6 +119,10 @@ angular.module('webUI')
         // Delete all input file
         $scope.deleteAll = function() {
           $scope.input_files = [];
+        }
+
+        $scope.toggleFilters = function() {
+          $scope.filtersShow = !$scope.filtersShow;
         }
 
     }]);

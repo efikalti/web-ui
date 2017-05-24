@@ -1,10 +1,10 @@
 .btn[disabled] {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 ul {
-    padding: 10px;
-    list-style-type: none;
+  padding: 10px;
+  list-style-type: none;
 }
 
 ul.sidebar li {
@@ -28,9 +28,9 @@ ul.sidebar li:hover {
 }
 
 .upload-file {
-    text-align: center;
-    background-color: #F7F6E9;
-    font-size: 20px;
+  text-align: center;
+  background-color: #F7F6E9;
+  font-size: 20px;
 }
 
 .drop-area {
@@ -43,7 +43,7 @@ ul.sidebar li:hover {
   margin: 0 auto;
 }
 
-.lg *{
+.lg * {
   font-size: 18px !important;
 }
 
@@ -71,7 +71,7 @@ ul.sidebar li:hover {
   text-align: center;
 }
 
-.welcome-title{
+.welcome-title {
   display: inline-block;
   font-size: 44px;
   padding: 10px;
@@ -91,7 +91,7 @@ ul.sidebar li:hover {
   vertical-align: top;
 }
 
-.links > h3 {
+.links>h3 {
   font-size: 24px;
 }
 
@@ -107,6 +107,7 @@ hr.style18 {
   border-radius: 20px;
   width: 50%;
 }
+
 hr.style18:before {
   display: block;
   content: "";
@@ -129,7 +130,7 @@ hr.style18:before {
   vertical-align: top;
 }
 
-.filter > h3 {
+.filter>h3 {
   margin-bottom: 15px;
   border-bottom: 2px solid #e99d1a;
   padding-bottom: 10px;
@@ -139,6 +140,6 @@ input[type="checkbox"] {
   margin-left: 10px;
 }
 
-.checkbox {
+.checkbox, .radio {
   margin-top: 10px !important;
 }

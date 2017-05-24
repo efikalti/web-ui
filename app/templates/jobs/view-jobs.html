@@ -66,32 +66,27 @@
               </div>
             </div>
           </div>
+
           <div class="col-md-4">
             <div class="filter">
               <h3>Name</h3>
-              <div class="checkbox">
-                <label>
-                <input type="checkbox" ng-model="filters.running" ng-true-value="true" ng-false-value="false">
-                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                &nbsp;&nbsp;Running
-              </label>
+
+              <div class="radio">
+               <label>
+                 <input type="radio" name="name-order" ng-model="filters.az_order" value="true"  value="">
+                 <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                 A - Z
+               </label>
               </div>
 
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" ng-model="filters.finished" ng-true-value="true" ng-false-value="false">
-                  <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  &nbsp;&nbsp;Finished
-                </label>
-              </div>
+             <div class="radio">
+               <label>
+                 <input type="radio" name="name-order" ng-model="filters.az_order" value="false" value="">
+                 <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                 Z - A
+               </label>
+             </div>
 
-              <div class="checkbox">
-                <label>
-                      <input type="checkbox" ng-model="filters.stopped" ng-true-value="true" ng-false-value="false">
-                      <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                      &nbsp;&nbsp;Stopped
-                    </label>
-              </div>
             </div>
           </div>
         </div>
@@ -124,7 +119,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-if="filters.running" ng-repeat="service in running">
+              <tr ng-if="filters.running" ng-repeat="service in running | orderBy:'name':filters.az_order">
                 <td>{{service.id}}</td>
                 <td><span class="text-info"><p>{{service.name}}</p></span></td>
                 <td><span class="text-info"><p><i class="fa fa-spinner" aria-hidden="true"></i>  {{service.status}}</p></span></td>

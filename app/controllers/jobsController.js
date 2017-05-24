@@ -45,6 +45,7 @@ angular.module('webUI')
           stopped : true,
           running : true,
           finished : true,
+          az_order: true,
         };
 
         if (typeof $state.current.data !== 'undefined'){
@@ -125,4 +126,13 @@ angular.module('webUI')
           $scope.filtersShow = !$scope.filtersShow;
         }
 
+        $scope.changeNameOrder = function() {
+          if (filters.az_order)
+          {
+
+          }
+          else{
+
+          }
+        }
     }]);

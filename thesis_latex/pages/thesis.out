@@ -6,3 +6,11 @@
 \BOOKMARK [1][-]{section.1.4}{Σενάρια χρήσης - Use cases}{chapter.1}% 6
 \BOOKMARK [2][-]{subsection.1.4.1}{Είσοδος - Login}{section.1.4}% 7
 \BOOKMARK [2][-]{subsection.1.4.2}{Έλεγχος εργασιών - View jobs}{section.1.4}% 8
+\BOOKMARK [2][-]{subsection.1.4.3}{Υποβολή νέας εργασίας - Submit job}{section.1.4}% 9
+\BOOKMARK [0][-]{chapter.2}{Service layer - Restful API}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Περιγραφή}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.2}{Σχεδίαση του API}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.3}{Είδη APIs}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.4}{REST - RESTful API}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.4.1}{Χαρακτηριστικά του REST}{section.2.4}% 15
+\BOOKMARK [2][-]{subsection.2.4.2}{Από URL σε HTTP}{section.2.4}% 16
